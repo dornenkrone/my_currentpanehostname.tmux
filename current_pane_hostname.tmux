@@ -2,8 +2,8 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-interpolation=('\#H' '\#{hostname_short}' '\#U' '\#\{pane_ssh_port\}' '\#\{pane_ssh_connected\}')
-script=("#($CURRENT_DIR/scripts/hostname.sh)" "#($CURRENT_DIR/scripts/hostname_short.sh)" "#($CURRENT_DIR/scripts/whoami.sh)" "#($CURRENT_DIR/scripts/port.sh)" "#($CURRENT_DIR/scripts/pane_ssh_connected.sh)")
+interpolation=('\#H' '\#{hostname_short}' '\#U' '\#\{pane_ssh_port\}' '\#\{pane_ssh_connected\}' '\#\{caplock\}' '\#\{numlock\}' )
+script=("#($CURRENT_DIR/scripts/hostname.sh)" "#($CURRENT_DIR/scripts/hostname_short.sh)" "#($CURRENT_DIR/scripts/whoami.sh)" "#($CURRENT_DIR/scripts/port.sh)" "#($CURRENT_DIR/scripts/pane_ssh_connected.sh)" "#($CURRENT_DIR/scripts/cap_lock.sh)" "#($CURRENT_DIR/scripts/num_lock.sh)")
 
 
 source $CURRENT_DIR/scripts/shared.sh

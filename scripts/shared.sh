@@ -95,6 +95,32 @@ get_info() {
   fi
 }
 
+get_keylock() {
+	case $1 in
+		'num')
+			mask=2
+			key="N"
+			actbg="yellow"
+			;;
+		'cap')
+			mask=1
+			key="C"
+			actbg="red"
+			;;
+	esac
+	# mask=1
+	# key="C"
+	# actbg="red"
+	value="$(xset q | grep 'LED mask' | awk '{ print $NF }')"
+	if [ $((0x$value & 0x$mask)) = $mask ]; then
+		output="#[bg=$actbg]#[fg=black] $key #[default]" #1 #"$key Lock is on"
+	else
+		output="#[bg=black]#[fg=black] $key #[default]" #0 #"$key Lock is off"
+	fi
+	echo $output
+}
+
+
 ssh_connected() {
   # Get current pane command
   local cmd=$(tmux display-message -p "#{pane_current_command}")
